@@ -1,0 +1,14 @@
+.dashboard{
+
+}
+
+.launches{
+  &__container{
+    display: flex;
+  }
+
+  &__card {
+    min-width: 413px;
+    margin:21px
+  }
+}
