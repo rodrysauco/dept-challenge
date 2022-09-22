@@ -10,7 +10,8 @@ const routes: Routes = [
   },
   {
     path:'mission/:id',
-    component: MissionComponent
+    component: MissionComponent,
+    
   }
 ]
 
