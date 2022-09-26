@@ -1,0 +1,35 @@
+.launch-details {
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__date {
+    font-family: 'D-DIN';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  &__title {
+    font-family: 'D-DIN';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-family: 'D-DIN';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0;
+  }
+}

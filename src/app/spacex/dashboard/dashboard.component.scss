@@ -1,14 +1,16 @@
 .dashboard{
-
-}
-
-.launches{
-  &__container{
-    display: flex;
+  &__body {
+    width: 95%;
+    margin: 36px auto 0 auto;
   }
 
-  &__card {
-    min-width: 413px;
-    margin:21px
+  &__subtitle {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    margin: 0;
   }
 }

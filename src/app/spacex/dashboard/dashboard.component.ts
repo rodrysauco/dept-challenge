@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
-import { EmpireService } from 'src/app/empire.service';
+import { SpaceService } from '../services/space.service';
 import { Launch } from '../models/launch';
 import { Rocket } from '../models/rocket';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,22 +14,23 @@ import { Rocket } from '../models/rocket';
 export class DashboardComponent implements OnInit {
 
   launches: Launch[] = [];
-  favoritesLaunches: Launch[] = [];
+  favouritesLaunches: Launch[] = [];
 
   constructor(
-    private spaceService: EmpireService,
+    private spaceService: SpaceService,
+    private storageService: LocalStorageService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.favoritesLaunches = this.spaceService.getFavourite();
+    this.favouritesLaunches = this.storageService.getFavourite();
     forkJoin(
       this.spaceService.getLaunches(),
       this.spaceService.getRockets()
     ).subscribe(([launches, rockets]) => {
       this.launches = launches.map(launch => {
         const auxRocket: Rocket = rockets.find(rocket => rocket.rocket_id === launch.rocket.rocket_id);
-        const isFavourite = this.favoritesLaunches.find(favourite => favourite.flight_number === launch.flight_number);
+        const isFavourite = this.favouritesLaunches.find(favourite => favourite.flight_number === launch.flight_number);
         const auxLaunch: Launch = {
           flight_number: launch.flight_number,
           mission_name: launch.mission_name,
@@ -49,16 +51,15 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  addFavourite(flight_number: number) {
+  handleToggleFavourite(flight_number: number) {
     const launchSelected = this.launches.find(launch => launch.flight_number === flight_number);
     if (launchSelected) {
       launchSelected.isFavourite = !launchSelected.isFavourite;
-      this.spaceService.setFavourite(launchSelected);
+      this.storageService.toggleFavourite(launchSelected);
     }
   }
 
-  navigateTo(flight_number: number) {
+  handleOpenDetails(flight_number: number) {
     this.router.navigate(['/dashboard/mission', flight_number]);
   }
-
 }

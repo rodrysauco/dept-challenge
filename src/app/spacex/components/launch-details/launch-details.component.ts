@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EmpireService } from 'src/app/empire.service';
 import { Launch } from '../../models/launch';
+import { SpaceService } from '../../services/space.service';
 
 @Component({
-  selector: 'app-mission',
-  templateUrl: './mission.component.html',
-  styleUrls: ['./mission.component.sass']
+  selector: 'app-launch-details',
+  templateUrl: './launch-details.component.html',
+  styleUrls: ['./launch-details.component.scss']
 })
-export class MissionComponent implements OnInit {
+export class LaunchDetailsComponent implements OnInit {
   launch: Launch;
   flight_number: any;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private spaceService: EmpireService
+    private spaceService: SpaceService
   ) {
     this.flight_number = this.activatedRoute.snapshot.paramMap.get('id');
   }
@@ -22,5 +22,4 @@ export class MissionComponent implements OnInit {
     this.spaceService.getLaunch(this.flight_number)
       .subscribe(data => this.launch = data);
   }
-
 }

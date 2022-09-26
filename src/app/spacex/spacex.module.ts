@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SpaceXRoutingModule } from './spacex-routing.module';
-
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
-import { MissionComponent } from './components/mission/mission.component';
+import { LaunchListComponent } from './components/launch-list/launch-list.component';
+import { LaunchComponent } from './components/launch/launch.component';
+import { LaunchDetailsComponent } from './components/launch-details/launch-details.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    MissionComponent
+    LaunchComponent,
+    LaunchListComponent,
+    LaunchDetailsComponent
   ],
   imports: [
     CommonModule,

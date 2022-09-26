@@ -1,0 +1,13 @@
+<mat-card 
+  class="launch" 
+  (click)="moreInfo()"
+>
+  <mat-card-title>{{launch.rocket?.rocket_name}}</mat-card-title>
+  <mat-card-subtitle>{{launch.details}}</mat-card-subtitle>
+  <mat-card-content>
+    <p>{{launch.launch_date_unix | date}}</p>
+  </mat-card-content>
+  <div class="launch__actions">
+    <mat-icon class="launch__icon" (click)="onFavClick($event)">{{launch.isFavourite ? 'favorite': 'add'}}</mat-icon>
+  </div>
+</mat-card>

@@ -1,0 +1,11 @@
+<div class="launch-list">
+  <div class="launch-list__counter">Total ({{launches.length}})</div>
+  <div class="launch-list__container">
+    <app-launch 
+      *ngFor="let launch of launches" 
+      [launch]="launch"
+      (openDetails)="onOpenDetails($event)"
+      (toggleFavourite)="onToggleFavourite($event)"
+    ></app-launch>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="launch-details" *ngIf="launch">
+  <div class="launch-details__header">
+    <p class="launch-details__date">{{launch.launch_date_unix | date}}</p>
+    <h1 class="launch-details__title">{{launch.rocket.rocket_name}}</h1>
+    <h3 class="launch-details__subtitle">{{launch.details}}</h3>
+  </div>
+  <div class="launch-details__body"></div>
+</div>

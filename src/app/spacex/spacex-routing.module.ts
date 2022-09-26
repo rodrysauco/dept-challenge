@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { MissionComponent } from "./components/mission/mission.component";
+import { LaunchDetailsComponent } from "./components/launch-details/launch-details.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 
 const routes: Routes = [
@@ -10,8 +10,7 @@ const routes: Routes = [
   },
   {
     path:'mission/:id',
-    component: MissionComponent,
-    
+    component: LaunchDetailsComponent,
   }
 ]
 
