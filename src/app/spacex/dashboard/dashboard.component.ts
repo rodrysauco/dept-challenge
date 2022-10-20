@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit {
           details: launch.details,
           mission_patch: launch.mission_patch,
           isFavourite: isFavourite ? true : false,
+          images: auxRocket.flickr_images[0],
           rocket: {
             rocket_id: auxRocket.rocket_id,
             rocket_name: auxRocket.rocket_name,
@@ -55,7 +56,7 @@ export class DashboardComponent implements OnInit {
     const launchSelected = this.launches.find(launch => launch.flight_number === flight_number);
     if (launchSelected) {
       launchSelected.isFavourite = !launchSelected.isFavourite;
-      this.storageService.toggleFavourite(launchSelected);
+      this.favouritesLaunches = this.storageService.toggleFavourite(launchSelected);
     }
   }
 

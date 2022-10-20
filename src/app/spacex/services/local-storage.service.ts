@@ -16,11 +16,13 @@ export class LocalStorageService {
       this.favouriteLaunches = this.favouriteLaunches.filter(launches => launches.flight_number !== launch.flight_number);
     }
     localStorage.setItem('launches', JSON.stringify(this.favouriteLaunches));
+    return this.favouriteLaunches;
   }
 
   getFavourite() {
     const launches = localStorage.getItem('launches');
     this.favouriteLaunches = launches ? JSON.parse(launches) : [];
+    console.log(this.favouriteLaunches);
     return this.favouriteLaunches;
   }
 }

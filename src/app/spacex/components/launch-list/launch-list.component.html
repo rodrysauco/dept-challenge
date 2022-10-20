@@ -1,11 +1,18 @@
 <div class="launch-list">
-  <div class="launch-list__counter">Total ({{launches.length}})</div>
-  <div class="launch-list__container">
-    <app-launch 
-      *ngFor="let launch of launches" 
+  <div class="launch-list__empty" *ngIf="!launches.length">
+    <p class="launch-list__counter">There are no launches to show.</p>
+  </div>
+  <ng-container *ngIf="launches.length">
+    <div class="launch-list__counter">Total ({{launches.length}})</div>
+    <div class="launch-list__container">
+      <app-launch 
+      *ngFor="let launch of filteredLaunches" 
       [launch]="launch"
       (openDetails)="onOpenDetails($event)"
       (toggleFavourite)="onToggleFavourite($event)"
-    ></app-launch>
-  </div>
+      ></app-launch>
+    </div>
+    <mat-paginator (page)="changePage($event)" *ngIf="launches.length > pageSize" [length]="launches.length" [pageSize]="pageSize" aria-label="Select page">
+    </mat-paginator>
+  </ng-container>
 </div>

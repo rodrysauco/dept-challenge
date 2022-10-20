@@ -6,6 +6,7 @@ export interface Launch {
   launch_date_unix: number,
   details: string,
   mission_patch: string,
-  rocket?: Rocket
-  isFavourite?: boolean
+  rocket?: Rocket,
+  isFavourite?: boolean,
+  images: string
 }

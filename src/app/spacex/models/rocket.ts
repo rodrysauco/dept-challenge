@@ -4,4 +4,5 @@ export interface Rocket {
   active: boolean,
   cost_per_launch: number,
   company: string
+  flickr_images?: Array<string>
 }

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SpaceXRoutingModule } from './spacex-routing.module';
@@ -24,7 +25,8 @@ import { LaunchDetailsComponent } from './components/launch-details/launch-detai
     SpaceXRoutingModule,
     MatTabsModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ]
 })
 export class SpacexModule { }

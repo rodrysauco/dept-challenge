@@ -1,8 +1,7 @@
 .launch {
-  min-width: 413px;
-  max-width: 413px;
-
-  height: 286px;
+  min-width: 393px;
+  max-width: 393px;
+  height: 471px;
 
   &:hover {
     cursor: pointer;
@@ -10,6 +9,11 @@
 
   &__icon {
     margin-right: 25px;
+  }
+
+  &__subtitle {
+    height: 40px;
+    overflow: auto;
   }
 
   &__actions {

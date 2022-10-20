@@ -1,13 +1,14 @@
-<mat-card 
-  class="launch" 
-  (click)="moreInfo()"
->
-  <mat-card-title>{{launch.rocket?.rocket_name}}</mat-card-title>
-  <mat-card-subtitle>{{launch.details}}</mat-card-subtitle>
+<mat-card class="launch" (click)="moreInfo()" *ngIf="launch">
+  <mat-card-header>
+    <mat-card-title>{{launch.rocket?.rocket_name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="launch.images">
   <mat-card-content>
+    <mat-card-subtitle class="launch__subtitle">{{launch.details}}</mat-card-subtitle>
     <p>{{launch.launch_date_unix | date}}</p>
   </mat-card-content>
   <div class="launch__actions">
-    <mat-icon class="launch__icon" (click)="onFavClick($event)">{{launch.isFavourite ? 'favorite': 'add'}}</mat-icon>
+    <mat-icon class="launch__icon" (click)="onFavClick($event)">{{launch.isFavourite? 'star' : 'star_outlined'}}
+    </mat-icon>
   </div>
 </mat-card>

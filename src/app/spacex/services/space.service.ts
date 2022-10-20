@@ -15,6 +15,7 @@ export class SpaceService {
   getLaunch(flight_number): Observable<Launch> {
     return this.http.get<Launch>(`${this.BASE_URL}launches/${flight_number}`)
   }
+  
   getLaunches(): Observable<Launch[]> {
     return this.http.get<Launch[]>(`${this.BASE_URL}launches`);
   }
